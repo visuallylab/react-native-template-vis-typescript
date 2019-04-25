@@ -4,6 +4,7 @@
   "@types/react-test-renderer": "latest",
   "@types/react": "latest",
   "@visuallylab/tslint-config-frontend": "~1.0.12",
+  "babel-plugin-module-resolver": "^3.2.0",
   "typescript": "latest",
   "tslint": "^5.13.1",
   "tslint-react-hooks": "^2.0.0"
