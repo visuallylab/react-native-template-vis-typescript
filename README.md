@@ -1,5 +1,7 @@
 # react-native-template-vis-typescript
 
+[![Build Status](https://travis-ci.org/visuallylab/react-native-template-vis-typescript.svg?branch=master)](https://travis-ci.org/visuallylab/react-native-template-vis-typescript)
+
 React Native template for a quick start with TypeScript
 
 ## Usage
