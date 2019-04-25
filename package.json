@@ -1,0 +1,30 @@
+{
+  "name": "react-native-template-vis-typescript",
+  "version": "0.0.1",
+  "description": "Clean and minimalist React Native template for a quick start with TypeScript.",
+  "scripts": {
+    "test": "standard setup.js",
+    "prepublishOnly": "npm --no-git-tag-version version $TRAVIS_TAG",
+    "install": "node setup.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/visuallylab/react-native-template-vis-typescript.git"
+  },
+  "keywords": [
+    "react-native",
+    "typescript",
+    "jest",
+    "template",
+    "boilerplate"
+  ],
+  "author": "Chi-Hsuan Huang <chihsuan.tw@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/visuallylab/react-native-template-vis-typescript/issues"
+  },
+  "homepage": "https://github.com/visuallylab/react-native-template-vis-typescript#readme",
+  "devDependencies": {
+    "standard": "12.0.1"
+  }
+}

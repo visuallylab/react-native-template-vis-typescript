@@ -1,0 +1,10 @@
+{
+  "@types/jest": "latest",
+  "@types/react-native": "latest",
+  "@types/react-test-renderer": "latest",
+  "@types/react": "latest",
+  "@visuallylab/tslint-config-frontend": "~1.0.12",
+  "typescript": "latest",
+  "tslint": "^5.13.1",
+  "tslint-react-hooks": "^2.0.0"
+}
