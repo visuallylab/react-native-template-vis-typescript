@@ -3,6 +3,7 @@
   "@types/react-native": "latest",
   "@types/react-test-renderer": "latest",
   "@types/react": "latest",
+  "@types/react-native-vector-icons": "latest",
   "@visuallylab/tslint-config-frontend": "~1.0.12",
   "babel-plugin-module-resolver": "^3.2.0",
   "typescript": "latest",
