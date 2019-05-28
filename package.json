@@ -26,21 +26,5 @@
   "homepage": "https://github.com/visuallylab/react-native-template-vis-typescript#readme",
   "devDependencies": {
     "standard": "12.0.1"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{ts,tsx,js,json,css,md}": [
-      "prettier --write",
-      "git add"
-    ]
-  },
-  "prettier": {
-    "singleQuote": true,
-    "jsxSingleQuote": false,
-    "trailingComma": "all"
   }
 }
