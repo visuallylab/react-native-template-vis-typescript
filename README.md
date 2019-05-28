@@ -12,6 +12,9 @@ Create a new react-native App with this template
 $ react-native init MyApp --template vis-typescript
 ```
 
+**IMPORTANT**
+1. copy _add_to_package.json and add into package.json
+
 Link libraries
 
 ```
