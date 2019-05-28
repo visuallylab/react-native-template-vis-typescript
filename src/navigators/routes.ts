@@ -1,3 +1,7 @@
 export enum Routes {
-  MainHome = 'Home',
+  // Auth
+  AuthLogin = 'AuthLogin',
+
+  // Main
+  MainHome = 'MainHome',
 }

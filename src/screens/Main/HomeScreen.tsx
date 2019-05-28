@@ -1,12 +1,14 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-export default () => (
+const HomeScreen: React.FC = () => (
   <View>
     <Text style={styles.welcome}>Welcome to React Native!</Text>
     <Text style={styles.instructions}>To get started, edit App.tsx</Text>
   </View>
 );
+
+export default HomeScreen;
 
 const styles = StyleSheet.create({
   container: {
