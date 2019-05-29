@@ -1,7 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 
-const PACKAGE_JSON_PATH = path.join(__dirname, 'package.json');
+const projectPath = path.join(__dirname, '..', '..');
+const PACKAGE_JSON_PATH = path.join(projectPath, 'package.json');
 
 if (fs.existsSync(path.join(__dirname, '.travis.yml'))) {
   process.exit();
@@ -19,7 +20,6 @@ const deleteFile = filePath => {
   fs.unlinkSync(filePath);
 };
 
-const projectPath = path.join(__dirname, '..', '..');
 const deleteProjectFile = fileName =>
   deleteFile(path.join(projectPath, fileName));
 const deleteTemplateFile = fileName =>
