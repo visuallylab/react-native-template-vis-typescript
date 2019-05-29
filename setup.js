@@ -34,7 +34,6 @@ function updatePackageJSON() {
 
   if (fs.existsSync(PACKAGE_JSON_PATH)) {
     packageContent = fs.readFileSync(PACKAGE_JSON_PATH, 'utf8');
-    console.log(`find ${PACKAGE_JSON_PATH}`);
   }
 
   let data = JSON.parse(packageContent);
@@ -48,6 +47,7 @@ function updatePackageJSON() {
 
   data = {
     ...data,
+    devDependencies: { ...data.devDependencies },
     husky: {
       hooks: {
         'pre-commit': 'lint-staged',
