@@ -28,7 +28,12 @@ projectFilesToDelete.forEach(deleteProjectFile);
 templateFilesToDelete.forEach(deleteTemplateFile);
 
 function updatePackageJSON() {
-  const packageFile = fs.readFileSync('package.json', 'utf8');
+  let packageContent = '';
+  try {
+    packageContent = fs.readFileSync('package.json', 'utf8');
+  } catch {
+    packageContent = '{}';
+  }
 
   let data = JSON.parse(packageFile);
 
