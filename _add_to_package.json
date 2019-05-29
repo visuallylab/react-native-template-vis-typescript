@@ -1,4 +1,8 @@
 {
+  "scripts": {
+    "build:ios": "react-native run-ios --no-packager --simulator 'iPhone 7'",
+    "release:android": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle && cd ./android && ./gradlew assembleRelease"
+  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
