@@ -1,13 +1,15 @@
 import React, { useContext } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { NavigationScreenProps } from 'react-navigation';
 import Spinner from '@/components/Spinner';
 import { UserContext } from '@/contexts/userContext';
 
-const HomeScreen: React.FC = () => {
+const HomeScreen: React.FC<NavigationScreenProps> = ({ navigation }) => {
   const { user, restored } = useContext(UserContext);
+  const name = navigation.getParam('name');
   return restored ? (
     <View>
-      <Text>Your email: {user.email}</Text>
+      <Text>Hi: {name}({user.email})</Text>
       <Text style={styles.welcome}>Welcome to React Native!</Text>
       <Text style={styles.instructions}>To get started, edit App.tsx</Text>
     </View>
