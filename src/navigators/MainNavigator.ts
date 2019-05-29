@@ -6,7 +6,7 @@ import { Routes } from './routes';
 
 export default createBottomTabNavigator(
   {
-    Home: {
+    [Routes.MainHome]: {
       screen: HomeScreen,
       navigationOptions: {
         title: 'Home',

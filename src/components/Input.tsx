@@ -40,24 +40,23 @@ const Input: React.FunctionComponent<TInputProps> = ({
   return (
     <View style={styles.inputGroupWrapper}>
       {label ? <Text style={styles.label}>{label}</Text> : null}
-        <View
-          style={[
-            styles.inputWrapper,
-            focus && { borderBottomColor: color.main },
-          ]}
-        >
-          <TextInput
-            placeholder={placeholder}
-            value={value}
-            style={[styles.inputText, { color: 'black' }]}
-            placeholderTextColor={color.placeholder}
-            onChangeText={v => setValue(v)}
-            onFocus={onFocus}
-            onEndEditing={onEndEditing}
-            {...textInput}
-          />
-        </View>
-      )
+      <View
+        style={[
+          styles.inputWrapper,
+          focus && { borderBottomColor: color.main },
+        ]}
+      >
+        <TextInput
+          placeholder={placeholder}
+          value={value}
+          style={[styles.inputText, { color: 'black' }]}
+          placeholderTextColor={color.placeholder}
+          onChangeText={v => setValue(v)}
+          onFocus={onFocus}
+          onEndEditing={onEndEditing}
+          {...textInput}
+        />
+      </View>
       {errorMessage ? (
         <Text style={styles.errorMessage}>{errorMessage}</Text>
       ) : null}

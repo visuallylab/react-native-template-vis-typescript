@@ -6,6 +6,9 @@ export default createStackNavigator(
   {
     [Routes.AuthLogin]: {
       screen: LoginScreen,
+      navigationOptions: {
+        title: 'Login',
+      },
     },
   },
   {

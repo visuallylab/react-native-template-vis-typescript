@@ -5,11 +5,11 @@ import { Routes } from './routes';
 
 const AppNavigator = createSwitchNavigator(
   {
-    Auth: AuthNavigator,
-    Main: MainNavigator,
+    [Routes.AppAuth]: AuthNavigator,
+    [Routes.AppMain]: MainNavigator,
   },
   {
-    initialRouteName: Routes.AuthLogin,
+    initialRouteName: Routes.AppAuth,
   },
 );
 
