@@ -1,25 +1,21 @@
 import React, { createContext, FunctionComponent } from 'react';
-import useAsyncStorage, {
-  TUseAsyncStorageOptions,
-} from '@/hooks/useAsyncStorage';
+import useAsyncStorage from '@/hooks/useAsyncStorage';
 import { AsyncStorageKey } from '@/constant';
 
 export type TUser = {
   id: string;
   email: string;
-  name: string;
-  avatar?: string;
 };
 
 export type TUserContext = {
   user: TUser;
   updateUser: React.Dispatch<React.SetStateAction<TUser>>;
+  restored: boolean;
 };
 
-const createDefaultUser = () => ({
-  id: '0',
-  email: 'test@example.com',
-  name: 'user',
+export const createDefaultUser: () => TUser = () => ({
+  id: '',
+  email: 'test@test.com',
 });
 
 export const UserContext = createContext<TUserContext>({
@@ -27,19 +23,23 @@ export const UserContext = createContext<TUserContext>({
   updateUser: () => {
     return;
   },
+  restored: false,
 });
 
-type TProps = {} & TUseAsyncStorageOptions;
+type TProps = { persist?: boolean };
 
 export const UserProvider: FunctionComponent<TProps> = props => {
-  const [user, setUser] = useAsyncStorage<TUser>(
+  const [user, setUser, restored] = useAsyncStorage<TUser>(
     AsyncStorageKey.User,
     createDefaultUser,
-    props,
+    {
+      persist: props.persist,
+      version: 0,
+    },
   );
 
   return (
-    <UserContext.Provider value={{ user, updateUser: setUser }}>
+    <UserContext.Provider value={{ user, updateUser: setUser, restored }}>
       {props.children}
     </UserContext.Provider>
   );

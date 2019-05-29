@@ -1,11 +1,12 @@
+
 import React from 'react';
 import { Text, View, ActivityIndicator } from 'react-native';
 
-type TLoaderProps = {
+type TSpinnerProps = {
   text?: string;
 };
 
-const Loader: React.FunctionComponent<TLoaderProps> = ({ text }) => (
+const Spinner: React.FunctionComponent<TSpinnerProps> = ({ text }) => (
   <View
     style={{
       flexDirection: 'row',
@@ -20,4 +21,4 @@ const Loader: React.FunctionComponent<TLoaderProps> = ({ text }) => (
   </View>
 );
 
-export default Loader;
+export default Spinner;

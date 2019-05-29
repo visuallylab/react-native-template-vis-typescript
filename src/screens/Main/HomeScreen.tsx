@@ -1,12 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import Spinner from '@/components/Spinner';
+import { UserContext } from '@/contexts/userContext';
 
-const HomeScreen: React.FC = () => (
-  <View>
-    <Text style={styles.welcome}>Welcome to React Native!</Text>
-    <Text style={styles.instructions}>To get started, edit App.tsx</Text>
-  </View>
-);
+const HomeScreen: React.FC = () => {
+  const { user, restored } = useContext(UserContext);
+  return restored ? (
+    <View>
+      <Text>Your email: {user.email}</Text>
+      <Text style={styles.welcome}>Welcome to React Native!</Text>
+      <Text style={styles.instructions}>To get started, edit App.tsx</Text>
+    </View>
+  ) : (
+    <Spinner text="載入中" />
+  );
+};
 
 export default HomeScreen;
 
