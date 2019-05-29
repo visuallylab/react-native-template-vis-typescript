@@ -1,6 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 
+const PACKAGE_JSON_PATH = path.join(__dirname, 'package.json');
+
 if (fs.existsSync(path.join(__dirname, '.travis.yml'))) {
   process.exit();
 }
@@ -28,14 +30,14 @@ projectFilesToDelete.forEach(deleteProjectFile);
 templateFilesToDelete.forEach(deleteTemplateFile);
 
 function updatePackageJSON() {
-  let packageContent = '';
-  try {
-    packageContent = fs.readFileSync('package.json', 'utf8');
-  } catch {
-    packageContent = '{}';
+  let packageContent = '{}';
+
+  if (fs.existsSync(PACKAGE_JSON_PATH)) {
+    packageContent = fs.readFileSync(PACKAGE_JSON_PATH, 'utf8');
+    console.log(`find ${PACKAGE_JSON_PATH}`);
   }
 
-  let data = JSON.parse(packageFile);
+  let data = JSON.parse(packageContent);
 
   data.scripts = {
     ...data.scripts,
@@ -61,5 +63,5 @@ function updatePackageJSON() {
     },
   };
 
-  fs.writeFileSync('package.json', JSON.stringify(data, null, 2));
+  fs.writeFileSync(PACKAGE_JSON_PATH, JSON.stringify(data, null, 2));
 }
