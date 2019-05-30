@@ -45,3 +45,5 @@ $ react-native run-android
 - OpenGL -> [gl-react-native-v2](https://github.com/gre/gl-react-native-v2)
 
 - Pop Dialogs -> [react-native-pop-dialog](https://github.com/jacklam718/react-native-popup-dialog)
+
+- Dynamic navigator tabs -> [react-native-tab-view](https://github.com/react-native-community/react-native-tab-view)
