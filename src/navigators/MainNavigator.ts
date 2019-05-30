@@ -1,12 +1,12 @@
 import { createBottomTabNavigator } from 'react-navigation';
 
+import HomeScreen from '@/screens/Main/HomeScreen';
 import { renderTabIcon } from '@/utils';
-import HomeScreen from '@/screens/HomeScreen';
 import { Routes } from './routes';
 
 export default createBottomTabNavigator(
   {
-    Home: {
+    [Routes.MainHome]: {
       screen: HomeScreen,
       navigationOptions: {
         title: 'Home',

@@ -1,3 +1,11 @@
 export enum Routes {
-  MainHome = 'Home',
+  // App
+  AppAuth = 'AppAuth',
+  AppMain = 'AppMain',
+
+  // Auth
+  AuthLogin = 'AuthLogin',
+
+  // Main
+  MainHome = 'MainHome',
 }
