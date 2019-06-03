@@ -1,4 +1,4 @@
-import { TLocalstorageValue } from './useAsyncStorage';
+import { TStorageValue } from './index';
 
 export type TMigration = {
   [version: number]: (state: any) => any;
@@ -6,7 +6,7 @@ export type TMigration = {
 
 export type TMigrationFuncParams = {
   key: string;
-  state: TLocalstorageValue<any>;
+  state: TStorageValue<any>;
   version: number;
 };
 
@@ -22,7 +22,7 @@ const createMigrate = <AfterValue>(
     key,
     state,
     version,
-  }: TMigrationFuncParams): TLocalstorageValue<AfterValue> => {
+  }: TMigrationFuncParams): TStorageValue<AfterValue> => {
     const { debug } = configs;
     if (!state.value) {
       if (debug) {
