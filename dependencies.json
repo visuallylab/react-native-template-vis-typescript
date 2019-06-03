@@ -1,5 +1,6 @@
 {
   "@react-native-community/async-storage": "latest",
+  "react-native-sensitive-info": "latest",
   "react-native-gesture-handler": "latest",
   "react-navigation": "latest",
   "react-native-vector-icons": "latest"

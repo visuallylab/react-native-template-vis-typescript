@@ -6,7 +6,6 @@ import { UserContext } from '@/contexts/userContext';
 
 const HomeScreen: React.FC<NavigationScreenProps> = ({ navigation }) => {
   const { user, restored } = useContext(UserContext);
-  const name = navigation.getParam('name');
   return (
     <SafeAreaView
       style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}
@@ -14,7 +13,7 @@ const HomeScreen: React.FC<NavigationScreenProps> = ({ navigation }) => {
       {restored ? (
         <View>
           <Text style={{ textAlign: 'center' }}>
-            Hi: {name}({user.email})
+            Hi: {user.name}({user.email})
           </Text>
           <Text style={styles.welcome}>Welcome to React Native!</Text>
           <Text style={styles.instructions}>To get started, edit App.tsx</Text>
