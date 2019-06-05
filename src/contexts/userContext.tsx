@@ -1,5 +1,5 @@
 import React, { createContext, FunctionComponent } from 'react';
-import usePersistStorage from '@/hooks/usePersistStorage';
+import usePersistStorage from 'react-native-use-persist-storage';
 import { StorageKey } from '@/constant';
 
 export type TUser = {
