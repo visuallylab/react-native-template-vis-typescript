@@ -1,10 +1,11 @@
 import React, { createContext, FunctionComponent } from 'react';
-import useAsyncStorage from '@/hooks/useAsyncStorage';
-import { AsyncStorageKey } from '@/constant';
+import usePersistStorage from 'react-native-use-persist-storage';
+import { StorageKey } from '@/constant';
 
 export type TUser = {
   id: string;
   email: string;
+  name: string;
 };
 
 export type TUserContext = {
@@ -16,6 +17,7 @@ export type TUserContext = {
 export const createDefaultUser: () => TUser = () => ({
   id: '',
   email: 'test@test.com',
+  name: '',
 });
 
 export const UserContext = createContext<TUserContext>({
@@ -29,8 +31,8 @@ export const UserContext = createContext<TUserContext>({
 type TProps = { persist?: boolean };
 
 export const UserProvider: FunctionComponent<TProps> = props => {
-  const [user, setUser, restored] = useAsyncStorage<TUser>(
-    AsyncStorageKey.User,
+  const [user, setUser, restored] = usePersistStorage<TUser>(
+    StorageKey.User,
     createDefaultUser,
     {
       persist: props.persist,
