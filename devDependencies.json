@@ -5,6 +5,7 @@
   "@types/react-test-renderer": "latest",
   "@types/react-native-vector-icons": "latest",
   "babel-plugin-module-resolver": "latest",
+  "babel-plugin-transform-remove-console": "latest",
   "typescript": "latest",
   "tslint": "latest",
   "tslint-react-hooks": "latest",
