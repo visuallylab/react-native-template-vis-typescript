@@ -14,7 +14,7 @@ import { Routes } from '@/navigators/routes';
 
 type TProps = {} & NavigationScreenProps;
 const LoginScreen: React.FC<TProps> = ({ navigation }) => {
-  const { setData: setUser } = useUser();
+  const [, setUser ] = useUser();
   const [name, setName] = useState<string>('');
   return (
     <SafeAreaView style={{ flex: 1 }}>

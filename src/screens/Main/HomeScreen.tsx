@@ -5,7 +5,7 @@ import Spinner from '@/components/Spinner';
 import { useUser } from '@/contexts/userContext';
 
 const HomeScreen: React.FC<NavigationScreenProps> = ({ navigation }) => {
-  const { data: user, restored } = useUser();
+  const [user,, restored ] = useUser();
   return (
     <SafeAreaView
       style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}

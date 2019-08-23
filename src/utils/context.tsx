@@ -18,30 +18,24 @@ export const createPersistContext = <T extends {}>({
 }) => {
   const createDefaultData = () => defaultData;
 
-  const Context = React.createContext<TPersistContext<T>>({
-    data: createDefaultData(),
-    setData: () => {
+  const Context = React.createContext<TPersistContext<T>>([
+    createDefaultData(),
+    () => {
       return;
     },
-    restored: false,
-  });
+    false,
+  ]);
 
   const Provider: React.FC<{
     persist?: boolean;
   }> = props => {
-    const [data, setData, restored] = usePersistStorage<T>(
-      storageKey,
-      createDefaultData,
-      {
-        persist: props.persist,
-        version,
-      },
-    );
+    const persisted = usePersistStorage<T>(storageKey, createDefaultData, {
+      persist: props.persist,
+      version,
+    });
 
     return (
-      <Context.Provider value={{ data, setData, restored }}>
-        {props.children}
-      </Context.Provider>
+      <Context.Provider value={persisted}>{props.children}</Context.Provider>
     );
   };
 
@@ -52,13 +46,7 @@ export const createPersistContext = <T extends {}>({
         `Context error: context [${storageKey}] must be used within a Provider`,
       );
     }
-    const { data, setData, restored } = context;
-
-    return {
-      data,
-      setData,
-      restored,
-    };
+    return context;
   };
 
   return {
@@ -75,21 +63,17 @@ export type TContext<T> = {
 
 export const createContext = <T extends {}>(defaultData: T) => {
   const createDefaultData = () => defaultData;
-  const Context = React.createContext<TContext<T>>({
-    data: createDefaultData(),
-    setData: () => {
+  const Context = React.createContext<TContext<T>>([
+    createDefaultData(),
+    () => {
       return;
     },
-  });
+  ]);
 
   const Provider: React.FC = props => {
-    const [data, setData] = useState<T>(createDefaultData);
+    const state = useState<T>(createDefaultData);
 
-    return (
-      <Context.Provider value={{ data, setData }}>
-        {props.children}
-      </Context.Provider>
-    );
+    return <Context.Provider value={state}>{props.children}</Context.Provider>;
   };
 
   const useData = () => {
@@ -97,12 +81,7 @@ export const createContext = <T extends {}>(defaultData: T) => {
     if (!context) {
       throw new Error(`Context error: context must be used within a Provider`);
     }
-    const { data, setData } = context;
-
-    return {
-      data,
-      setData,
-    };
+    return context;
   };
 
   return {
