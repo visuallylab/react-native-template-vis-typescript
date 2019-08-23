@@ -29,13 +29,13 @@ export const createPersistContext = <T extends {}>({
   const Provider: React.FC<{
     persist?: boolean;
   }> = props => {
-    const persisted = usePersistStorage<T>(storageKey, createDefaultData, {
+    const [data, setData, restore] = usePersistStorage<T>(storageKey, createDefaultData, {
       persist: props.persist,
       version,
     });
 
     return (
-      <Context.Provider value={persisted}>{props.children}</Context.Provider>
+      <Context.Provider value={[data, setData, restore]}>{props.children}</Context.Provider>
     );
   };
 
