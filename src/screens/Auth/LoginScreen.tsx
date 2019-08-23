@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState } from 'react';
 import {
   SafeAreaView,
   Text,
@@ -9,12 +9,12 @@ import {
 import { NavigationScreenProps } from 'react-navigation';
 
 import Input from '@/components/Input';
-import { UserContext } from '@/contexts/userContext';
+import { useUser } from '@/contexts/userContext';
 import { Routes } from '@/navigators/routes';
 
 type TProps = {} & NavigationScreenProps;
 const LoginScreen: React.FC<TProps> = ({ navigation }) => {
-  const { updateUser } = useContext(UserContext);
+  const { setData: setUser } = useUser();
   const [name, setName] = useState<string>('');
   return (
     <SafeAreaView style={{ flex: 1 }}>
@@ -37,7 +37,7 @@ const LoginScreen: React.FC<TProps> = ({ navigation }) => {
         <TouchableOpacity
           onPress={() => {
             navigation.navigate(Routes.MainHome);
-            updateUser(user => ({ ...user, name }));
+            setUser(user => ({ ...user, name }));
           }}
         >
           <Text style={{ textDecorationLine: 'underline' }}>Go Main</Text>
