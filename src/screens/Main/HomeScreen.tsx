@@ -1,11 +1,11 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { View, Text, StyleSheet, SafeAreaView } from 'react-native';
 import { NavigationScreenProps } from 'react-navigation';
 import Spinner from '@/components/Spinner';
-import { UserContext } from '@/contexts/userContext';
+import { useUser } from '@/contexts/userContext';
 
 const HomeScreen: React.FC<NavigationScreenProps> = ({ navigation }) => {
-  const { user, restored } = useContext(UserContext);
+  const [user,, restored ] = useUser();
   return (
     <SafeAreaView
       style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}
