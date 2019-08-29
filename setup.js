@@ -4,10 +4,6 @@ const path = require('path');
 const projectPath = path.join(__dirname, '..', '..');
 const PACKAGE_JSON_PATH = path.join(projectPath, 'package.json');
 
-if (fs.existsSync(path.join(__dirname, '.travis.yml'))) {
-  process.exit();
-}
-
 const projectFilesToDelete = ['.flowconfig', 'App.js', '__tests__/App-test.js'];
 
 const templateFilesToDelete = ['setup.js', 'README.md', 'LICENSE'];
