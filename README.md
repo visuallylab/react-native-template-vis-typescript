@@ -6,34 +6,44 @@ React Native template for a quick start with TypeScript
 
 ## Usage
 
-Create a new react-native App with this template
+1. Create a new react-native App with this template
 
 ```
-$ react-native init MyApp --template vis-typescript
+$ npx react-native init MyApp --template vis-typescript
 ```
 
-Link libraries
+2. Run app
 
 ```
-$ react-native link
+$ yarn react-native run-ios
+$ yarn react-native run-android
 ```
 
-Run
+Note: currently [react native cli support autolinking](https://github.com/react-native-community/cli/blob/master/docs/autolinking.md#autolinking), do not need the command `react-native link` anymore, it may cause build error after you run the command. 
+
+If the library do not support the autolinking, [edit the config in react-native.config.js](https://github.com/react-native-community/cli/blob/master/docs/autolinking.md#how-can-i-disable-autolinking-for-unsupported-library).
+
+## Development
+[Run the template locally](https://github.com/react-native-community/cli/blob/master/docs/init.md#initializing-project-with-custom-template)
 
 ```
-$ react-native run-ios
-$ react-native run-android
+$ npx react-native init MyApp --template file://ThePathToTemplate
 ```
-
+ex:
+```
+$ npx react-native init MyApp --template file:///Users/username/Projects/react-native-template-vis-typescript
+```
 
 ## Frameworks
 
 #### This template including
+
 - Navigator -> [react-navigation](https://reactnavigation.org/)
 - Icons -> [react-native-vector-icons](https://oblador.github.io/react-native-vector-icons/)
 - Persist -> [@react-native-community/async-storage](https://github.com/react-native-community/react-native-async-storage) + our own `useAsyncStorage`(including in hooks folder)
 
 #### We recommend if you need
+
 - UI components -> [react-native-base](https://nativebase.io/)
 
 - Image picker -> [react-native-image-crop-picker](https://github.com/ivpusic/react-native-image-crop-picker)
