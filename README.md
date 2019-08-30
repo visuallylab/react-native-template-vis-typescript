@@ -9,7 +9,7 @@ React Native template for a quick start with TypeScript
 1. Create a new react-native App with this template
 
 ```
-$ npx react-native init MyApp --template vis-typescript
+$ npx react-native init MyApp --template react-native-template-vis-typescript
 ```
 
 2. Run app
