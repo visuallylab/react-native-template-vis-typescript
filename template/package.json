@@ -1,0 +1,56 @@
+{
+  "name": "ProjectName",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest",
+    "build:ios": "react-native run-ios --no-packager --simulator 'iPhone 7'",
+    "release:android": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle && cd ./android && ./gradlew assembleRelease"
+  },
+  "jest": {
+    "preset": "react-native"
+  },
+  "dependencies": {
+    "@react-native-community/async-storage": "^1.6.1",
+    "@react-native-community/cli": "^2.9.0",
+    "react": "^16.9.0",
+    "react-native": "^0.60.5",
+    "react-native-gesture-handler": "^1.4.1",
+    "react-native-use-persist-storage": "^0.0.3",
+    "react-native-vector-icons": "^6.6.0",
+    "react-navigation": "^3.12.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.18",
+    "@types/react": "^16.9.2",
+    "@types/react-native": "^0.60.8",
+    "@types/react-native-vector-icons": "^6.4.1",
+    "@types/react-test-renderer": "^16.9.0",
+    "@visuallylab/tslint-config-frontend": "^1.0.12",
+    "babel-plugin-module-resolver": "^3.2.0",
+    "babel-plugin-transform-remove-console": "^6.9.4",
+    "husky": "^3.0.4",
+    "lint-staged": "^9.2.5",
+    "prettier": "^1.18.2",
+    "tslint": "^5.19.0",
+    "tslint-react-hooks": "^2.2.1",
+    "typescript": "^3.6.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,json,css,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "prettier": {
+    "singleQuote": true,
+    "jsxSingleQuote": false,
+    "trailingComma": "all"
+  }
+}
